@@ -1,0 +1,26 @@
+extends templates/layout
+
+block append config
+    - var age = 27
+
+block prepend main
+    h2 I am taking over
+block main
+    h2 I am taking over.
+    p Super cool!
+    div.ok
+        h3 Hello I am #{name} and an #{age}
+
+mixin product(title, imageID, price)
+    .product
+        .product__wrapper
+            img.product__img(
+                src="#{image}#{imageID}"
+            )
+            .product__content
+                h2.product__titile #{title}
+                p.product__price AU$ #{price}
+
+.products
+
+    +product('iPhone', 35, '499')
