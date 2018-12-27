@@ -1,0 +1,81 @@
+mixin comment(commentData)
+    .comment
+        if commentData.postByAdmin
+            em (Posted by Admin)
+        .date= commentData.date
+        .author= commentData.author
+        .text= commentData.text
+doctype html
+html
+    head
+    style.
+        .comment {
+            font-family: sans-serif;
+            line-height: 1.5;
+            padding: 10px;
+            border: 1px solid #555;
+            width: 350px;
+        }
+        .date { font-size: 85%; text-align: right}
+        .author {font-size: 110%; font-weight: bold;}
+        .text { font-size: 100%}
+    body
+        //- input(type="password" name="inpPwd" data-js=`${ 1 > 2 ? "OK" : "NOT OK!"}`)
+        //- - const myClasses = ["class1", "class2", "class3"]
+        //- div.my-div(class=myClasses)
+        //- - const myStyles = {"color": "red", "background-color": "blue"}
+        //- div(style=myStyles)
+        //-     h2 Okay
+        //- img(src="pubg.jpg", alt="no image")
+        //- h3(style="text-align: center; color: blue;") This center element
+        //- // for and each loop
+        //- each n, i in [1,2,3,4,5]
+        //-     p=n + " - " + i
+        //- - const names = ["Don", "Sophie", "Mark"];
+        //- each n, i in names
+        //-     p=n
+        //- - const grades = { "Web Dev": 85, "Software Design": 59}
+        //- each n, i in []
+        //-     p= n + " - " + i
+        //- else
+        //-     strong No Values are here !
+        //- // conditonal statements
+        //- - let user = { name: "Domestic", loggedIn: false, lastLogin: 6}
+        //- if user.loggedIn
+        //-     p
+        //-         | Welcome back, 
+        //-         strong #{ user.name }
+        //- else if user.lastLogin < 10
+        //-     p You lasy login was #{user.lastLogin} minutes ago
+        //-     p 
+        //-         a(href="http://google.com") Log In Again
+        //- else
+        //-     a(href="http://google.com", target="_blank") Log In
+        
+        //- // Switch case statement
+        //- - const orderStatus = 'Pending'
+
+        //- case orderStatus
+        //-     when 'Pending'
+        //-         p Your order has been placed and will be sent shortly
+        //-     when 'In_Transit'
+        //-         p Your order is on the move - you should recieve it
+        //-     when 'Completed'
+        //-         p Your order has been completed
+        //-     default
+        //-         p Sorry! We aren't  sure that happened with your order...
+
+        //- // Includes Statement
+
+        //- h1 Company Name
+        //- nav
+        //-     a(href="index.html") Home
+        //-     a(href="about.html") About Us
+        //-     a(href="#") Contact Us
+        
+
+        - const c = {postByAdmin: true, date: '04-02-2018', author: 'Himanshu pandey', text: 'Have a nice day'}
+        +comment(c)
+        - const cc = {date: '09-03-2018', author: 'Rocky pandey', text: 'Have a good day'}
+        +comment(cc)
+        div(style="margin: 300px")
